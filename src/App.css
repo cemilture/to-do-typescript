@@ -1,0 +1,39 @@
+.taskMain {
+  display: flex;
+  flex-direction: column;
+  width: 450px;
+  margin: auto;
+}
+
+.input {
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.button {
+  border: none;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: antiquewhite;
+  color: brown;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: blueviolet;
+  color: aliceblue;
+}
+.cardsMap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cards {
+  border: 1px solid black;
+  width: 300px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 10px;
+  margin: 20px;
+}
