@@ -1,4 +1,4 @@
 export type TToDo = {
   task: string;
-  workDay: number;
+  workDay: number | string | undefined;
 };

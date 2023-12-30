@@ -5,7 +5,9 @@ import ToDoItem from "./ToDoItem";
 
 function App() {
   const [task, setTask] = useState<string>("");
-  const [workDay, setWorkDay] = useState<number>(0);
+  const [workDay, setWorkDay] = useState<number | string | undefined>(
+    undefined
+  );
   const [toDoList, setToDoList] = useState<TToDo[]>([]);
 
   console.log(toDoList);
@@ -19,10 +21,14 @@ function App() {
   };
 
   const addNewTask = (): void => {
+    if (!task || !workDay) {
+      alert("Please fill out both task and workDay!");
+      return;
+    }
     const newTask = { task: task, workDay: workDay }; //isimler aynı olduğu için sadece task,workDay olarak da yazabiliriz
     setToDoList([...toDoList, newTask]);
     setTask("");
-    setWorkDay(0);
+    setWorkDay("");
   };
 
   const deleteTask = (deleteByName: string): void => {
@@ -39,21 +45,23 @@ function App() {
         <input
           className="input"
           type="text"
-          placeholder="Taskınızı giriniz..."
+          placeholder="Enter the task"
           value={task}
           onChange={handleChange}
           name="task"
+          required
         />
         <input
           className="input"
           type="number"
-          placeholder="Kaç günde tamamlamalısınız"
+          placeholder="How many days to complete"
           value={workDay}
           onChange={handleChange}
           name="workDay"
+          required
         />
         <button className="button" onClick={addNewTask}>
-          Yeni Task Ekle
+          Add New Task
         </button>
       </div>
       <div className="cardsMap">
